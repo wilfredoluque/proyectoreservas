@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Listado de Estudiantes</h3>
+
+  <div class="mb-3 text-end">
+    <a href="{{ url_for('estudiantes_controller.nuevo') }}" class="btn btn-success btn-sm">Agregar Estudiante</a>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Celular</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for estudiante in estudiantes %}
+      <tr class="text-center">
+        <td>{{ estudiante['id'] }}</td>
+        <td>{{ estudiante['nombre'] }}</td>
+        <td>{{ estudiante['apellidos'] }}</td>
+        <td>{{ estudiante['correo'] }}</td>
+        <td>{{ estudiante['celular'] }}</td>
+        <td>
+          <a href="{{ url_for('estudiantes_controller.editar', id=estudiante['id']) }}" class="btn btn-primary btn-sm">Editar</a>
+          <form action="{{ url_for('estudiantes_controller.eliminar', id=estudiante['id']) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Desea eliminar este estudiante?');">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr class="text-center">
+        <td colspan="6">No hay estudiantes registrados.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="text-center mt-3">
+    <a href="{{ url_for('dashboard_controller.index') }}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}

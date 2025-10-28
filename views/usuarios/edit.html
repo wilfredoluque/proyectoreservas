@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5" style="max-width:450px;">
+  <h3 class="text-center mb-4">Editar Usuario</h3>
+  <form method="POST" action="{{ url_for('usuarios_controller.editar', id=usuario['id']) }}">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" value="{{ usuario['nombre'] }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Correo</label>
+      <input type="email" class="form-control" name="email" value="{{ usuario['email'] }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password" class="form-control" name="password">
+      <small class="text-muted">Dejar en blanco para mantener la contraseña actual</small>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Rol</label>
+      <select name="rol" class="form-select" required>
+        <option value="admin" {% if usuario['rol'] == 'admin' %}selected{% endif %}>Admin</option>
+        <option value="usuario" {% if usuario['rol'] == 'usuario' %}selected{% endif %}>Usuario</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="{{ url_for('usuarios_controller.index') }}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}

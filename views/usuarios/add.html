@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5" style="max-width:450px;">
+  <h3 class="text-center mb-4">Agregar Usuario</h3>
+  <form method="POST" action="{{ url_for('usuarios_controller.nuevo') }}">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Correo</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password" class="form-control" name="password" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Rol</label>
+      <select name="rol" class="form-select" required>
+        <option value="" disabled selected>Seleccione un rol</option>
+        <option value="admin">Admin</option>
+        <option value="usuario">Usuario</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Guardar</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="{{ url_for('usuarios_controller.index') }}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+/* ===== CentroCap - Estilo General ===== */
+:root {
+--primary: #007bff;
+--secondary: #6c757d;
+--success: #28a745;
+--danger: #dc3545;
+--bg-light: #f8f9fa;
+--text-dark: #212529;
+--radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px 25px;
+}
+
+h3 {
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.table {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.btn {
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+footer::after {
+    content: "⚡ Desarrollado con pasión por Wilfredo ⚡";
+    display: block;
+    margin-top: 8px;
+    color: var(--primary);
+    font-weight: 600;
+}

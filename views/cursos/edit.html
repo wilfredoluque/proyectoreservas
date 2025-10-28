@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="max-width:450px;">
+  <h3 class="text-center mb-4">Editar Curso</h3>
+  <form method="POST" action="{{ url_for('cursos_controller.editar', id=curso['id']) }}">
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <input type="text" class="form-control" name="descripcion" value="{{ curso['descripcion'] }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="{{ url_for('cursos_controller.index') }}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}

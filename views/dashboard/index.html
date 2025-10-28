@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Bienvenido al Dashboard</h2>
+  <p class="text-center">Aquí puedes gestionar cursos, estudiantes, inscripciones y usuarios.</p>
+
+  <div class="d-flex justify-content-center mt-4 gap-2 flex-wrap">
+    <a href="{{ url_for('cursos_controller.index') }}" class="btn btn-primary">Cursos</a>
+    <a href="{{ url_for('estudiantes_controller.index') }}" class="btn btn-success">Estudiantes</a>
+    <a href="{{ url_for('inscripcion_controller.index') }}" class="btn btn-warning">Inscripciones</a>
+    <a href="{{ url_for('usuarios_controller.index') }}" class="btn btn-info">Usuarios</a>
+  </div>
+</div>
+{% endblock %}

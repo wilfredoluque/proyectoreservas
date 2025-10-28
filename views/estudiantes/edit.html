@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5" style="max-width:450px;">
+  <h3 class="text-center mb-4">Editar Estudiante</h3>
+  <form method="POST" action="{{ url_for('estudiantes_controller.editar', id=estudiante['id']) }}">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" value="{{ estudiante['nombre'] }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Apellidos</label>
+      <input type="text" class="form-control" name="apellidos" value="{{ estudiante['apellidos'] }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Correo</label>
+      <input type="email" class="form-control" name="correo" value="{{ estudiante['correo'] }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Celular</label>
+      <input type="text" class="form-control" name="celular" value="{{ estudiante['celular'] }}">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="{{ url_for('estudiantes_controller.index') }}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}
